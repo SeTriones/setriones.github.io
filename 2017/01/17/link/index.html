@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>try&#39;s Blog</title>
+  <title>动态链接和静态链接 | try&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="try's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="几乎在所有的linux发行版上，都存在着一定程度的不兼容问题，如何让自己的程序能尽量多的在发行版上运行？ldd大多数的binary，会发现他们都依赖于libc.so，这是glibc提供的C标准库，那么就有了一个很直观的计划：静态链接glibc。
+静态链接gblic，首先你需要一个静态版本的glibc，即libc.a而不是libc.so。在要注意，你无法静态链接动态库，也无法动态连接静态库，他们的文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态链接和静态链接">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/link/index.html">
 <meta property="og:site_name" content="try's Blog">
+<meta property="og:description" content="几乎在所有的linux发行版上，都存在着一定程度的不兼容问题，如何让自己的程序能尽量多的在发行版上运行？ldd大多数的binary，会发现他们都依赖于libc.so，这是glibc提供的C标准库，那么就有了一个很直观的计划：静态链接glibc。
+静态链接gblic，首先你需要一个静态版本的glibc，即libc.a而不是libc.so。在要注意，你无法静态链接动态库，也无法动态连接静态库，他们的文">
+<meta property="og:updated_time" content="2017-01-17T07:32:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="try's Blog">
+<meta name="twitter:title" content="动态链接和静态链接">
+<meta name="twitter:description" content="几乎在所有的linux发行版上，都存在着一定程度的不兼容问题，如何让自己的程序能尽量多的在发行版上运行？ldd大多数的binary，会发现他们都依赖于libc.so，这是glibc提供的C标准库，那么就有了一个很直观的计划：静态链接glibc。
+静态链接gblic，首先你需要一个静态版本的glibc，即libc.a而不是libc.so。在要注意，你无法静态链接动态库，也无法动态连接静态库，他们的文">
   
     <link rel="alternate" href="/atom.xml" title="try&#39;s Blog" type="application/atom+xml">
   
@@ -59,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-link" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-link" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/17/link/" class="article-date">
   <time datetime="2017-01-17T07:30:09.000Z" itemprop="datePublished">2017-01-17</time>
@@ -74,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/17/link/">动态链接和静态链接</a>
+    <h1 class="article-title" itemprop="name">
+      动态链接和静态链接
     </h1>
   
 
@@ -116,49 +121,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-buddha" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/17/buddha/" class="article-date">
-  <time datetime="2017-01-17T07:11:48.000Z" itemprop="datePublished">2017-01-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/17/buddha/">玄学头文件</a>
-    </h1>
+    <a href="/2017/01/17/buddha/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">玄学头文件</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有时候你需要在你的有文件里加入一些奇怪的东西，以求得满天神佛的保佑。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">////                       _oo0oo_</div><div class="line">////                      o8888888o</div><div class="line">////                      88&quot; . &quot;88</div><div class="line">////                      (| -_- |)</div><div class="line">////                      0\  =  /0</div><div class="line">////                    ___/`---&apos;\___</div><div class="line">////                  .&apos; \\|     |// &apos;.</div><div class="line">////                 / \\|||  :  |||// \</div><div class="line">////                / _||||| -:- |||||- \</div><div class="line">////               |   | \\\  -  /// |   |</div><div class="line">////               | \_|  &apos;&apos;\---/&apos;&apos;  |_/ |</div><div class="line">////               \  .-\__  &apos;-&apos;  ___/-. /</div><div class="line">////             ___&apos;. .&apos;  /--.--\  `. .&apos;___</div><div class="line">////          .&quot;&quot; &apos;&lt;  `.___\_&lt;|&gt;_/___.&apos; &gt;&apos; &quot;&quot;.</div><div class="line">////         | | :  `- \`.;`\ _ /`;.`/ - ` : | |</div><div class="line">////         \  \ `_.   \_ __\ /__ _/   .-` /  /</div><div class="line">////     =====`-.____`.___ \_____/___.-`___.-&apos;=====</div><div class="line">////                       `=---=&apos;</div><div class="line">////</div><div class="line">////</div><div class="line">////     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div><div class="line">////</div><div class="line">////               佛祖保佑         永无BUG</div><div class="line">////</div><div class="line">////</div><div class="line">////</div><div class="line">//</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/17/buddha/" data-id="ciy17d2tn0000qgu8zqa3h59f" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/玄学/">玄学</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
